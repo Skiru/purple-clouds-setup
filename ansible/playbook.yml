@@ -1,0 +1,10 @@
+---
+- hosts: vb
+  become: true
+  roles:
+    - common
+    - docker
+    - jenkins
+
+- import_playbook: ecorp-playbook.yml
+

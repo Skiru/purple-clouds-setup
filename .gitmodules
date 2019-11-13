@@ -1,0 +1,3 @@
+[submodule "PurpleClouds/ecorp"]
+	path = PurpleClouds/ecorp
+	url = git@github.com:Skiru/ecorp.git
