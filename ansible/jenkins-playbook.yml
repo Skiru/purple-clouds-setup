@@ -1,0 +1,5 @@
+---
+- hosts: vb, prod
+  become: true
+  roles:
+    - jenkins
