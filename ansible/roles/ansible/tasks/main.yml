@@ -1,0 +1,5 @@
+---
+
+- name: Install ansible via pip
+  command: sudo pip install ansible
+  become: true

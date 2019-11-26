@@ -1,0 +1,21 @@
+---
+- name: Creates directory
+  file:
+    path: /var/www/PurpleClouds/ecorp
+    state: directory
+
+- name: Create nginx conf directory
+  file:
+    path: /var/www/PurpleClouds/ecorp/docker/nginx
+    state: directory
+
+- name: Create pgdata directory
+  file:
+    path: /var/www/PurpleClouds/ecorp/docker/pgdata
+    state: directory
+
+- name: Write docker-compose.yml
+  template: src=docker-compose.yml dest=/var/www/PurpleClouds/ecorp/docker-compose.yml
+
+- name: Write nginx.conf
+  template: src=default.conf dest=/var/www/PurpleClouds/ecorp/docker/nginx/default.conf
