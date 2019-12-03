@@ -4,7 +4,17 @@
     name: purple_clouds_nginx
     image: nginx:latest
     ports:
-      - "80:80"
+      - "80:8000"
     state: started
     restart: yes
+    volumes:
+      - /vagrant/PurpleClouds:/PurpleClouds
 
+- name: Copy nginx config template file
+  template: src=default.conf dest=/tmp/default.conf
+
+- name: Copy into the docker, nginx conf
+  command: docker cp /tmp/default.conf purple_clouds_nginx:/etc/nginx/conf.d/default.conf
+
+- name: Remove the template
+  file: path=/tmp/default.conf state=absent
