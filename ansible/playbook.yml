@@ -5,6 +5,7 @@
     - common
     - docker
     - ecorp-production
+- import_playbook: nginx-playbook.yml
 - import_playbook: ecorp-playbook.yml
 - import_playbook: jenkins-playbook.yml
 #- import_playbook: ansible-playbook.yml

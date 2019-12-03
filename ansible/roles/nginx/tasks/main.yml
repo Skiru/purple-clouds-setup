@@ -2,4 +2,9 @@
 - name: Start nginx container
   docker_container:
     name: purple_clouds_nginx
-    image: nginx:stable
+    image: nginx:latest
+    ports:
+      - "80:80"
+    state: started
+    restart: yes
+
