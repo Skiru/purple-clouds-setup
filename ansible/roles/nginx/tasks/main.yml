@@ -1,0 +1,5 @@
+---
+- name: Start nginx container
+  docker_container:
+    name: purple_clouds_nginx
+    image: nginx:stable
