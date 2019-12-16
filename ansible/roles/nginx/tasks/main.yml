@@ -1,14 +1,23 @@
 ---
+- name: Create a network
+  docker_network:
+    name: '{{pc_docker_network}}'
+
 - name: Start nginx container
   docker_container:
     name: purple_clouds_nginx
     image: nginx:latest
-    ports:
-      - "80:8000"
-    state: started
-    restart: yes
-    volumes:
-      - /vagrant/PurpleClouds:/PurpleClouds
+    exposed_ports:
+        - "80"
+    state: present
+    recreate: yes
+
+- name: Add nginx to "{{docker_network}}" network
+  docker_network:
+    name: '{{pc_docker_network}}'
+    connected:
+      - purple_clouds_nginx
+    appends: yes
 
 - name: Copy nginx config template file
   template: src=default.conf dest=/tmp/default.conf

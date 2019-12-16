@@ -59,4 +59,7 @@
     - item.path | d() and item.src | d()
 
 - name: Install docker-py
-  pip: name=docker-py version=1.9.0
+  pip: name=docker-py
+
+- name: Update docker-py
+  command: pip install --upgrade docker-py

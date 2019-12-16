@@ -1,0 +1,6 @@
+---
+# PurpleClouds applications default variables
+
+#Nginx reverse proxy
+
+pc_docker_network: purple_clouds_network

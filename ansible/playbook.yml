@@ -4,9 +4,9 @@
   roles:
     - common
     - docker
-    - ecorp-production
-- import_playbook: nginx-playbook.yml
+- import_playbook: nginx-reverseproxy-playbook.yml
 - import_playbook: ecorp-playbook.yml
+
+- import_playbook: ecorp-production-playbook.yml
 - import_playbook: jenkins-playbook.yml
-#- import_playbook: ansible-playbook.yml
 
