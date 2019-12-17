@@ -5,25 +5,26 @@
 
 - name: Start nginx container
   docker_container:
-    name: purple_clouds_nginx
+    name: purple_clouds_nginx_reverse
     image: nginx:latest
-    exposed_ports:
-        - "80"
-    state: present
+    ports:
+      - "80:80"
+    state: started
+    restart: yes
     recreate: yes
 
 - name: Add nginx to "{{docker_network}}" network
   docker_network:
     name: '{{pc_docker_network}}'
     connected:
-      - purple_clouds_nginx
+      - purple_clouds_nginx_reverse
     appends: yes
 
 - name: Copy nginx config template file
   template: src=default.conf dest=/tmp/default.conf
 
 - name: Copy into the docker, nginx conf
-  command: docker cp /tmp/default.conf purple_clouds_nginx:/etc/nginx/conf.d/default.conf
+  command: docker cp /tmp/default.conf purple_clouds_nginx_reverse:/etc/nginx/conf.d/default.conf
 
 - name: Remove the template
   file: path=/tmp/default.conf state=absent
