@@ -3,28 +3,41 @@
   docker_network:
     name: '{{pc_docker_network}}'
 
-- name: Start nginx container
-  docker_container:
-    name: purple_clouds_nginx_reverse
-    image: nginx:latest
-    ports:
-      - "80:80"
-    state: started
-    restart: yes
-    recreate: yes
-
-- name: Add nginx to "{{docker_network}}" network
-  docker_network:
-    name: '{{pc_docker_network}}'
-    connected:
-      - purple_clouds_nginx_reverse
-    appends: yes
+- name: Create tmp/nginx directory
+  file:
+    path: /tmp/nginx
+    state: directory
+    mode: '0777'
 
 - name: Copy nginx config template file
-  template: src=default.conf dest=/tmp/default.conf
+  template: src=default.conf dest=/tmp/nginx/default.conf
 
-- name: Copy into the docker, nginx conf
-  command: docker cp /tmp/default.conf purple_clouds_nginx_reverse:/etc/nginx/conf.d/default.conf
+- name: Copy nginx docker-compose template file
+  template: src=docker-compose.yml dest=/tmp/nginx/docker-compose.yml
 
-- name: Remove the template
-  file: path=/tmp/default.conf state=absent
+- name: Copy nginx Dockerfile-dev template file
+  template: src=Dockerfile-dev dest=/tmp/nginx/Dockerfile-dev
+
+- name: Remove existing containers
+  command: docker-compose down -v --remove-orphans
+  args:
+    chdir: /tmp/nginx
+
+- name: Start the containers
+  command: docker-compose up -d
+  args:
+    chdir: /tmp/nginx
+
+- name: Remove the templates
+  file: path=/tmp/nginx/default.conf state=absent
+
+- name: Remove the templates
+  file: path=/tmp/nginx/docker-compose.yml state=absent
+
+- name: Remove the templates
+  file: path=/tmp/nginx/Dockerfile-dev state=absent
+
+- name: Remove directory
+  file:
+    path: /tmp/nginx
+    state: absent

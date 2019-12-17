@@ -1,0 +1,12 @@
+version: '3'
+services:
+  purple_clouds_nginx_reverse:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    ports:
+      - "80:80"
+    networks: ["default", "purple_clouds_network"]
+
+networks:
+  purple_clouds_network: {"external": {"name": "purple_clouds_network"}}
