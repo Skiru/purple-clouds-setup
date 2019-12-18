@@ -1,3 +1,6 @@
 [submodule "PurpleClouds/ecorp"]
 	path = PurpleClouds/ecorp
 	url = git@github.com:Skiru/ecorp.git
+[submodule "PurpleClouds/blog"]
+	path = PurpleClouds/blog
+	url = git@github.com:Skiru/blog.git

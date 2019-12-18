@@ -6,6 +6,7 @@
     - docker
 - import_playbook: nginx-reverseproxy-playbook.yml
 - import_playbook: ecorp-playbook.yml
+- import_playbook: blog-playbook.yml
 
 - import_playbook: ecorp-production-playbook.yml
 - import_playbook: jenkins-playbook.yml

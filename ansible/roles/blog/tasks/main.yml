@@ -1,0 +1,15 @@
+---
+- name: Remove existing containers
+  command: docker-compose down -v --remove-orphans
+  args:
+    chdir: /vagrant/PurpleClouds/blog
+
+- name: Start the containers
+  command: docker-compose up -d
+  args:
+    chdir: /vagrant/PurpleClouds/blog
+
+- name: Run composer install inside the container
+  command: docker exec -i blog_purple_clouds_blog_php_1 bash -c "composer install -n -v"
+  args:
+    chdir: /vagrant/PurpleClouds/blog
