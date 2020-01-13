@@ -14,11 +14,11 @@
     path: /vagrant/PurpleClouds/ecorp/.env
     state: touch
 
-
 - name: Add variables to .env
   blockinfile:
     path: /vagrant/PurpleClouds/ecorp/.env
     block: |
+      APP_ENV=dev
       KERNEL_CLASS=App\Kernel
       APP_SECRET=s$cretf0rt3s
       SYMFONY_DEPRECATIONS_HELPER=999999

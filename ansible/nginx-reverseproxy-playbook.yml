@@ -1,5 +1,5 @@
 ---
-- hosts: vb
+- hosts: vb, prod
   become: true
   roles:
     - nginx
