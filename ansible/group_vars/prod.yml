@@ -1,0 +1,8 @@
+---
+blog_server_name: "blog.purpleclouds.pl purpleclouds.pl"
+ecorp_server_name: "ecorp.purpleclouds.pl"
+blog_nginx_docker: "blog_purple_clouds_nginx_1"
+blog_php_docker: "blog_purple_clouds_blog_php_1"
+ecorp_nginx_docker: "ecorp_purple_clouds_nginx_1"
+ecorp_php_docker: "ecorp_purple_clouds_php_1"
+ecorp_postgres_docker: "ecorp_purple_clouds_postgres_1"
