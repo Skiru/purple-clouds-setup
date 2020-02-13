@@ -63,3 +63,7 @@
 
 - name: Update docker-py
   command: pip install --upgrade docker-py
+
+- name: Create a network
+  docker_network:
+    name: '{{pc_docker_network}}'

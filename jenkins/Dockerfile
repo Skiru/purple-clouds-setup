@@ -11,7 +11,7 @@ RUN usermod -a -G docker jenkins
 
 docker 1000
 
-kontener jenkinsa
+#kontener jenkinsa
 docker 1001
 
 USER jenkins

@@ -1,8 +1,4 @@
 ---
-- name: Create a network
-  docker_network:
-    name: '{{pc_docker_network}}'
-
 - name: Create tmp/nginx directory
   file:
     path: /tmp/nginx
