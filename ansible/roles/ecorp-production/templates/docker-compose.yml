@@ -27,11 +27,17 @@ services:
     volumes:
       - ./docker/pgdata:/var/lib/postgresql
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
       POSTGRES_USER: mrrobot
       POSTGRES_PASSWORD: root
       POSTGRES_DB: purpleclouds
+    networks: ["default", "purple_clouds_network"]
+
+  purple_clouds_assets:
+    image: "mkoziol/purpleclouds:${ECORP_NGINX_IMAGE_BUILD_TAG}"
+    ports:
+      - "8800:8800"
     networks: ["default", "purple_clouds_network"]
 
 networks:

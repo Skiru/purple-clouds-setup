@@ -9,6 +9,11 @@
     path: /var/www/PurpleClouds/ecorp/docker/nginx
     state: directory
 
+- name: Create nginx assets conf directory
+  file:
+    path: /var/www/PurpleClouds/ecorp/docker/assets
+    state: directory
+
 - name: Create pgdata directory
   file:
     path: /var/www/PurpleClouds/ecorp/docker/pgdata
@@ -18,4 +23,7 @@
   template: src=docker-compose.yml dest=/var/www/PurpleClouds/ecorp/docker-compose.yml
 
 - name: Write nginx.conf
-  template: src=default.conf dest=/var/www/PurpleClouds/ecorp/docker/nginx/default.conf
+  template: src=nginx_default.conf dest=/var/www/PurpleClouds/ecorp/docker/nginx/default.conf
+
+- name: Write assets.conf
+  template: src=assets_default.conf dest=/var/www/PurpleClouds/ecorp/docker/assets/default.conf
