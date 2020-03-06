@@ -20,7 +20,7 @@
     chdir: /tmp/nginx
 
 - name: Start the containers
-  command: docker-compose up -d
+  command: docker-compose up -d -V
   args:
     chdir: /tmp/nginx
 

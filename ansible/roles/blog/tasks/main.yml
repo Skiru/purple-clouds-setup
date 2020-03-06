@@ -10,6 +10,6 @@
     chdir: /vagrant/PurpleClouds/blog
 
 - name: Run composer install inside the container
-  command: docker exec -i blog_purple_clouds_blog_php_1 bash -c "composer install -n -v"
+  command: docker-compose exec -T blog_purple_clouds_php bash -c "composer install -n -v"
   args:
     chdir: /vagrant/PurpleClouds/blog
