@@ -3,21 +3,25 @@
   file:
     path: /var/www/PurpleClouds/ecorp
     state: directory
+    mode: '0777'
 
 - name: Create nginx conf directory
   file:
     path: /var/www/PurpleClouds/ecorp/docker/nginx
     state: directory
+    mode: '0777'
 
 - name: Create nginx assets conf directory
   file:
     path: /var/www/PurpleClouds/ecorp/docker/assets
     state: directory
+    mode: '0777'
 
 - name: Create pgdata directory
   file:
     path: /var/www/PurpleClouds/ecorp/docker/pgdata
     state: directory
+    mode: '0777'
 
 - name: Write docker-compose.yml
   template: src=docker-compose.yml dest=/var/www/PurpleClouds/ecorp/docker-compose.yml

@@ -4,10 +4,6 @@ services:
     image: "mkoziol/purpleclouds:${IMAGE_BUILD_TAG}"
     links:
       - ecorp_purple_clouds_postgres
-    environment:
-      KERNEL_CLASS: App\Kernel
-      APP_SECRET: s$cretf0rt3s
-      DATABASE_URL: pgsql://mrrobot:root@77.55.222.35:5432/purpleclouds
     networks: ["default", "purple_clouds_network"]
 
   ecorp_purple_clouds_nginx:
@@ -23,15 +19,15 @@ services:
     networks: ["default", "purple_clouds_network"]
 
   ecorp_purple_clouds_postgres:
-    image: postgres
-    volumes:
-      - ./docker/pgdata:/var/lib/postgresql
+    image: postgres:10
     ports:
-      - "5432:5432"
+      - 5432:5432
+    volumes:
+      - ./docker/pgdata:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: mrrobot
       POSTGRES_PASSWORD: root
-      POSTGRES_DB: purpleclouds
+      POSTGRES_DB: idp_purpleclouds
     networks: ["default", "purple_clouds_network"]
 
   ecorp_purple_clouds_assets:
