@@ -18,12 +18,11 @@ Vagrant.configure("2") do |config|
     config.vm.provision "shell", path: "./ansible/ansible.sh"
 
     # Linux
-#      config.vm.synced_folder ".", "/vagrant",
-#      type: "nfs",
-#      nfs_version: 4,
-#      nfs_udp: false
+     config.vm.synced_folder ".", "/vagrant",
+     type: "nfs",
+     nfs_version: 4
 
     # Mac
-    config.vm.synced_folder ".", "/vagrant",
-    type: "nfs"
+    #config.vm.synced_folder ".", "/vagrant",
+    #type: "nfs"
 end
