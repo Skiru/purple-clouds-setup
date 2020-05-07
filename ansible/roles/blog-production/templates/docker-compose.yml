@@ -2,6 +2,8 @@ version: '3'
 services:
   blog_purple_clouds_php:
     image: "mkoziol/purpleclouds:${IMAGE_BUILD_TAG}"
+    volumes:
+      - /var/www/PurpleClouds/blog/public/assets/uploads:/var/www/html/public/assets/uploads
     environment:
       APP_ENV: prod
     networks: ["default", "purple_clouds_network"]
@@ -30,6 +32,8 @@ services:
 
   blog_purple_clouds_assets:
     image: "mkoziol/purpleclouds:${BLOG_NGINX_IMAGE_BUILD_TAG}"
+    volumes:
+      - /var/www/PurpleClouds/blog/public/assets/uploads:/static/assets/uploads
     ports:
       - 8900:8900
     networks: ["default", "purple_clouds_network"]

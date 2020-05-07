@@ -15,6 +15,12 @@
     state: directory
     mode: '0777'
 
+- name: Create uploads directory
+  file:
+    path: /var/www/PurpleClouds/blog/public/assets/uploads
+    state: directory
+    mode: '0777'
+
 - name: Create mongodata directory
   file:
     path: /var/www/PurpleClouds/blog/docker/mongodata
