@@ -1,6 +1,7 @@
 ---
 blog_server_name: "blog.purpleclouds.pl purpleclouds.pl"
 ecorp_server_name: "ecorp.purpleclouds.pl"
+task_manager_server_name: "task.purpleclouds.pl"
 blog_nginx_docker: "blog_purple_clouds_nginx"
 blog_php_docker: "blog_purple_clouds_php"
 blog_assets: "blog_purple_clouds_assets"
@@ -8,4 +9,5 @@ ecorp_nginx_docker: "ecorp_purple_clouds_nginx"
 ecorp_php_docker: "ecorp_purple_clouds_php"
 ecorp_postgres_docker: "ecorp_purple_clouds_postgres"
 ecorp_assets: "ecorp_purple_clouds_assets"
-
+task_manager_nginx_docker: "task-manager_task_manager_purple_clouds_nginx_1"
+task_manager_php_docker: "task-manager_task_manager_purple_clouds_php_1"

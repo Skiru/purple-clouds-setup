@@ -1,0 +1,16 @@
+---
+- name: Creates directory
+  file:
+    path: /var/www/PurpleClouds/task-manager
+    state: directory
+
+- name: Create nginx conf directory
+  file:
+    path: /var/www/PurpleClouds/task-manager/docker/nginx
+    state: directory
+
+- name: Write docker-compose.yml
+  template: src=docker-compose.yml dest=/var/www/PurpleClouds/task-manager/docker-compose.yml
+
+- name: Write default.conf
+  template: src=default.conf dest=/var/www/PurpleClouds/task-manager/docker/nginx/default.conf
