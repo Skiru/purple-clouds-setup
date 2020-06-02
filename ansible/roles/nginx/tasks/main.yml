@@ -11,8 +11,14 @@
 - name: Copy nginx docker-compose template file
   template: src=docker-compose.yml dest=/tmp/nginx/docker-compose.yml
 
-- name: Copy nginx Dockerfile-dev template file
-  template: src=Dockerfile-dev dest=/tmp/nginx/Dockerfile-dev
+- name: Copy SSL CRT file
+  template: src=032A116F849F5BC6D0FF84A65B9CF7C5.crt dest=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.crt
+
+- name: Copy SSL KEY file
+  template: src=032A116F849F5BC6D0FF84A65B9CF7C5.key dest=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.key
+
+- name: Copy nginx Dockerfile template file
+  template: src=Dockerfile dest=/tmp/nginx/Dockerfile
 
 - name: Remove existing containers
   command: docker-compose down -v --remove-orphans
@@ -24,14 +30,20 @@
   args:
     chdir: /tmp/nginx
 
-- name: Remove the templates
+- name: Remove the template
   file: path=/tmp/nginx/default.conf state=absent
 
-- name: Remove the templates
+- name: Remove the template
   file: path=/tmp/nginx/docker-compose.yml state=absent
 
-- name: Remove the templates
-  file: path=/tmp/nginx/Dockerfile-dev state=absent
+- name: Remove the template
+  file: path=/tmp/nginx/Dockerfile state=absent
+
+- name: Remove SSL CRT file
+  file: path=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.crt state=absent
+
+- name: Remove SSL KEY file
+  file: path=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.key state=absent
 
 - name: Remove directory
   file:
