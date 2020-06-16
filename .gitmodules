@@ -4,3 +4,6 @@
 [submodule "PurpleClouds/blog"]
 	path = PurpleClouds/blog
 	url = git@github.com:Skiru/blog.git
+[submodule "PurpleClouds/task-manager"]
+	path = PurpleClouds/task-manager
+	url = git@github.com:Skiru/task-manager.git
