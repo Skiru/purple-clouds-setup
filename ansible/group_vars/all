@@ -1,6 +1,5 @@
 ---
 # PurpleClouds applications default variables
-
 #Nginx reverse proxy
-
-pc_docker_network: purple_clouds_network
+purple_clouds_docker_network_external: purple_clouds_network_external
+purple_clouds_docker_network_internal: purple_clouds_network_internal

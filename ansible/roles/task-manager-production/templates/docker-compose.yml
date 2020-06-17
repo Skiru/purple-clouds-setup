@@ -2,7 +2,7 @@ version: '3'
 services:
   task_manager_purple_clouds_php:
     image: "mkoziol/purpleclouds:${IMAGE_BUILD_TAG}"
-    networks: ["default", "purple_clouds_network"]
+    networks: ["purple_clouds_network_internal"]
 
   task_manager_purple_clouds_nginx:
     image: nginx:latest
@@ -12,7 +12,7 @@ services:
       - task_manager_purple_clouds_php
     volumes:
       - /var/www/PurpleClouds/task-manager/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-    networks: ["default", "purple_clouds_network"]
+    networks: ["purple_clouds_network_internal"]
 
 networks:
-  purple_clouds_network: {"external": {"name": "purple_clouds_network"}}
+  purple_clouds_network_internal: {"external": {"name": "purple_clouds_network_internal"}}

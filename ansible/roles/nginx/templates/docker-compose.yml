@@ -7,7 +7,8 @@ services:
     ports:
       - "80:80"
       - "443:443"
-    networks: ["default", "purple_clouds_network"]
+    networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
 networks:
-  purple_clouds_network: {"external": {"name": "purple_clouds_network"}}
+  purple_clouds_network_external: {"external": {"name": "purple_clouds_network_external"}}
+  purple_clouds_network_internal: {"external": {"name": "purple_clouds_network_internal"}}
