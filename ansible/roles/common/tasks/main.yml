@@ -10,11 +10,11 @@
 
 - name: Update APT Reporistory
   apt:
-    state: present
-    update_cache: true
-    force: yes
+    state: latest
+    update_cache: yes
     allow_unauthenticated: yes
+    force: yes
+    only_upgrade: yes
 
-- name: Upgrade available packages
-  apt:
-    upgrade: dist
+- name: Update and upgrade
+  shell: apt-get update && apt-get upgrade

@@ -2,14 +2,14 @@
 # vi: set ft=ruby :
 
 Vagrant.configure("2") do |config|
-    config.vm.box = "debian/contrib-stretch64"
+    config.vm.box = "bento/debian-9.13"
     config.vm.network "private_network", ip: "192.168.33.10"
     config.vm.network "forwarded_port", guest: 80, host: 8888
     config.ssh.forward_agent = true
 
     config.vm.provider "virtual_box" do |vb|
     vb.name = "purpleclouds"
-    vb.memory = 2048
+    vb.memory = 8096
     vb.cpus = 2
     end
 
