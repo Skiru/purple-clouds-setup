@@ -1,0 +1,25 @@
+---
+- name: Creates directory
+  file:
+    path: /var/www/PurpleClouds/wedding
+    state: directory
+
+- name: Create nginx conf directory
+  file:
+    path: /var/www/PurpleClouds/wedding/docker/nginx
+    state: directory
+
+- name: Create nginx assets conf directory
+  file:
+    path: /var/www/PurpleClouds/wedding/docker/assets
+    state: directory
+    mode: '0777'
+
+- name: Write docker-compose.yml
+  template: src=docker-compose.yml dest=/var/www/PurpleClouds/wedding/docker-compose.yml
+
+- name: Write nginx.conf
+  template: src=default.conf dest=/var/www/PurpleClouds/wedding/docker/nginx/default.conf
+
+- name: Write assets.conf
+  template: src=assets_default.conf dest=/var/www/PurpleClouds/wedding/
