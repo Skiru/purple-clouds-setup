@@ -1,37 +1,6 @@
 ---
-- name: Creates directory
-  file:
-    path: /var/www/PurpleClouds/blog
-    state: directory
-
-- name: Create nginx conf directory
-  file:
-    path: /var/www/PurpleClouds/blog/docker/nginx
-    state: directory
-
-- name: Create nginx assets conf directory
-  file:
-    path: /var/www/PurpleClouds/blog/docker/assets
-    state: directory
-    mode: '0777'
-
-- name: Create static files directory
-  file:
-    path: /var/www/PurpleClouds/blog/public/assets/uploads
-    state: directory
-    mode: '0777'
-
-- name: Create mongodata directory
-  file:
-    path: /var/www/PurpleClouds/blog/docker/mongodata
-    state: directory
-    mode: '0777'
-
 - name: Write docker-compose.yml
   template: src=docker-compose.yml dest=/var/www/PurpleClouds/blog/docker-compose.yml
 
 - name: Write nginx.conf
-  template: src=default.conf dest=/var/www/PurpleClouds/blog/docker/nginx/default.conf
-
-- name: Write assets.conf
-  template: src=assets_default.conf dest=/var/www/PurpleClouds/blog/
+  template: src=nginx.conf dest=/var/www/PurpleClouds/blog/docker/nginx/nginx.conf
