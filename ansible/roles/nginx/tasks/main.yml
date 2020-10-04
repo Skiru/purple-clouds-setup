@@ -1,51 +1,31 @@
 ---
-- name: Create tmp/nginx directory
+- name: Create /var/www/PurpleClouds/nginx directory
   file:
-    path: /tmp/nginx
+    path: /var/www/PurpleClouds/nginx
     state: directory
     mode: '0777'
 
 - name: Copy nginx config template file
-  template: src=default.conf dest=/tmp/nginx/default.conf
+  template: src=default.conf dest=/var/www/PurpleClouds/nginx/default.conf
 
 - name: Copy nginx docker-compose template file
-  template: src=docker-compose.yml dest=/tmp/nginx/docker-compose.yml
+  template: src=docker-compose.yml dest=/var/www/PurpleClouds/nginx/docker-compose.yml
 
 - name: Copy SSL CRT file
-  template: src=032A116F849F5BC6D0FF84A65B9CF7C5.crt dest=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.crt
+  template: src=server.crt dest=/var/www/PurpleClouds/nginx/server.crt
 
 - name: Copy SSL KEY file
-  template: src=032A116F849F5BC6D0FF84A65B9CF7C5.key dest=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.key
+  template: src=server.key dest=/var/www/PurpleClouds/nginx/server.key
 
 - name: Copy nginx Dockerfile template file
-  template: src=Dockerfile dest=/tmp/nginx/Dockerfile
+  template: src=Dockerfile dest=/var/www/PurpleClouds/nginx/Dockerfile
 
 - name: Remove existing containers
   command: docker-compose down -v --remove-orphans
   args:
-    chdir: /tmp/nginx
+    chdir: /var/www/PurpleClouds/nginx
 
 - name: Start the containers
   command: docker-compose up -d -V --build
   args:
-    chdir: /tmp/nginx
-
-- name: Remove the template
-  file: path=/tmp/nginx/default.conf state=absent
-
-- name: Remove the template
-  file: path=/tmp/nginx/docker-compose.yml state=absent
-
-- name: Remove the template
-  file: path=/tmp/nginx/Dockerfile state=absent
-
-- name: Remove SSL CRT file
-  file: path=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.crt state=absent
-
-- name: Remove SSL KEY file
-  file: path=/tmp/nginx/032A116F849F5BC6D0FF84A65B9CF7C5.key state=absent
-
-- name: Remove directory
-  file:
-    path: /tmp/nginx
-    state: absent
+    chdir: /var/www/PurpleClouds/nginx
