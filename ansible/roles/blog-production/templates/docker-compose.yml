@@ -23,6 +23,7 @@ services:
 
   blog_purple_clouds_mongo:
     image: "bitnami/mongodb:latest"
+    restart: always
     volumes:
       - ./docker/mongo:/bitnami/mongodb
     environment:
@@ -34,6 +35,8 @@ services:
 
   blog_purple_clouds_assets:
     image: "${BLOG_ASSETS_IMAGE_BUILD_TAG}"
+    ports:
+      - "8900:8900"
     volumes:
       - /var/www/PurpleClouds/blog/public/assets/uploads:/static/assets/uploads
     networks: ["purple_clouds_network_internal"]
