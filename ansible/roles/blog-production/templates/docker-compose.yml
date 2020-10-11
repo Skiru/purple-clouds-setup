@@ -22,15 +22,12 @@ services:
     networks: ["purple_clouds_network_internal"]
 
   blog_purple_clouds_mongo:
-    image: "bitnami/mongodb:latest"
-    restart: always
+    image: "mongo:latest"
     volumes:
-      - ./docker/mongo:/bitnami/mongodb
+      - ./docker/mongo:/data/db
     environment:
-      MONGODB_USERNAME: mrrobot
-      MONGODB_PASSWORD: root
-      MONGODB_DATABASE: purpleclouds_blog
-      MONGODB_INITIAL_PRIMARY_PORT_NUMBER: 27017
+      MONGO_INITDB_ROOT_USERNAME: mrrobot
+      MONGO_INITDB_ROOT_PASSWORD: root
     networks: ["purple_clouds_network_internal"]
 
   blog_purple_clouds_assets:
