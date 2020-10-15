@@ -1,4 +1,10 @@
 ---
+- name: Create docker directory
+  file:
+    path: /var/www/PurpleClouds/blog/docker/nginx/
+    state: directory
+    mode: '0777'
+
 - name: Write docker-compose.yml
   template: src=docker-compose.yml dest=/var/www/PurpleClouds/blog/docker-compose.yml
 

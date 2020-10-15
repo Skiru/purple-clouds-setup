@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins:latest
 
 USER root
 RUN apt-get -qq update \
@@ -8,10 +8,5 @@ RUN apt-get -qq update \
 RUN curl -sSL https://get.docker.com/ | sh
 
 RUN usermod -a -G docker jenkins
-
-docker 1000
-
-#kontener jenkinsa
-docker 1001
 
 USER jenkins
