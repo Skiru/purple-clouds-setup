@@ -58,8 +58,11 @@
     - item.state | d("present") != "absent"
     - item.path | d() and item.src | d()
 
-- name: Install docker-py
-  pip: name=docker-py
+- name: Install pip3 docker
+  apt: pip3 install docker
+
+- name: Install pip3 docker-compose
+  command: pip3 install docker-compose
 
 - name: Update docker-py
   command: pip install --upgrade docker-py
