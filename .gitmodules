@@ -7,3 +7,6 @@
 [submodule "PurpleClouds/task-manager"]
 	path = PurpleClouds/task-manager
 	url = git@github.com:Skiru/task-manager.git
+[submodule "PurpleClouds/wedding"]
+	path = PurpleClouds/wedding
+	url = git@github.com:Skiru/wedding.git
