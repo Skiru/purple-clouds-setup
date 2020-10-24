@@ -1,7 +1,7 @@
 version: '3.8'
 services:
   ecorp_purple_clouds_php:
-    image: "mkoziol/purpleclouds:${IMAGE_BUILD_TAG}"
+    image: "${ECORP_PHP_IMAGE_BUILD_TAG}"
     links:
       - ecorp_purple_clouds_postgres
     networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
@@ -31,7 +31,7 @@ services:
     networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
   ecorp_purple_clouds_assets:
-    image: "mkoziol/purpleclouds:${ECORP_NGINX_IMAGE_BUILD_TAG}"
+    image: "${ECORP_ASSETS_IMAGE_BUILD_TAG}"
     ports:
       - "8800:8800"
     networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]

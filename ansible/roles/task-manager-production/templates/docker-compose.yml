@@ -1,7 +1,7 @@
-version: '3'
+version: '3.8'
 services:
   task_manager_purple_clouds_php:
-    image: "mkoziol/purpleclouds:${IMAGE_BUILD_TAG}"
+    image: "${TASK_MANAGER_PHP_IMAGE_BUILD_TAG}"
     networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
   task_manager_purple_clouds_nginx:
