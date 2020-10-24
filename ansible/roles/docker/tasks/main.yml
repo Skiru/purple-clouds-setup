@@ -37,11 +37,22 @@
 - name: Install Virtualenv
   command: pip3 install virtualenv
 
+- name: Delete a network, disconnecting all containers
+  docker_network:
+    name: "{{ purple_clouds_docker_network_external}}"
+    state: absent
+    force: yes
+
+- name: Delete a network, disconnecting all containers
+  docker_network:
+    name: "{{ purple_clouds_docker_network_internal}}"
+    state: absent
+    force: yes
+
 - name: Create a network
   docker_network:
-    name: '{{purple_clouds_docker_network_external}}'
+    name: "{{ purple_clouds_docker_network_external }}"
 
 - name: Create an internal network
   docker_network:
-    name: '{{purple_clouds_docker_network_external}}'
-    internal: true
+    name: "{{ purple_clouds_docker_network_internal }}"

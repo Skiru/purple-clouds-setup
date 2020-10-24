@@ -1,11 +1,11 @@
-version: '3'
+version: '3.8'
 
 services:
   wedding_purple_clouds_php:
     image: "${WEDDING_PHP_IMAGE_BUILD_TAG}"
     environment:
       APP_ENV: prod
-    networks: ["purple_clouds_network_internal"]
+    networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
   wedding_purple_clouds_nginx:
     image: nginx:latest
@@ -17,13 +17,14 @@ services:
       - wedding_purple_clouds_php
     volumes:
       - /var/www/PurpleClouds/wedding/docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
-    networks: ["purple_clouds_network_internal"]
+    networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
   wedding_purple_clouds_assets:
     image: "${WEDDING_ASSETS_IMAGE_BUILD_TAG}"
     ports:
       - "8901:8901"
-    networks: ["purple_clouds_network_internal"]
+    networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
 networks:
+  purple_clouds_network_external: {"external": {"name": "purple_clouds_network_external"}}
   purple_clouds_network_internal: {"external": {"name": "purple_clouds_network_internal"}}
