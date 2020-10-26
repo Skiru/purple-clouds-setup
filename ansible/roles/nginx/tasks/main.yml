@@ -12,10 +12,10 @@
   template: src=docker-compose.yml dest=/var/www/PurpleClouds/nginx/docker-compose.yml
 
 - name: Copy SSL CRT file
-  template: src=purpleclouds.pl/server.crt dest=/var/www/PurpleClouds/nginx/server.crt
+  template: src=purplecloud.pl/server.crt dest=/var/www/PurpleClouds/nginx/server.crt
 
 - name: Copy SSL KEY file
-  template: src=purpleclouds.pl/server.key dest=/var/www/PurpleClouds/nginx/server.key
+  template: src=purplecloud.pl/server.key dest=/var/www/PurpleClouds/nginx/server.key
 
 - name: Copy nginx Dockerfile template file
   template: src=Dockerfile dest=/var/www/PurpleClouds/nginx/Dockerfile
@@ -26,6 +26,6 @@
     chdir: /var/www/PurpleClouds/nginx
 
 - name: Start the containers
-  command: docker-compose up -d -V --build
+  command: docker-compose up -d --build --force-recreate
   args:
     chdir: /var/www/PurpleClouds/nginx

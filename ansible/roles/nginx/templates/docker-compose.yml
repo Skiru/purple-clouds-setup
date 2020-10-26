@@ -1,6 +1,6 @@
-version: '3'
+version: '3.8'
 services:
-  purple_clouds_nginx_reverse:
+  reverse_proxy:
     build:
       context: .
       dockerfile: Dockerfile
