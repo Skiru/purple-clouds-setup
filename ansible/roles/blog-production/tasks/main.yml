@@ -5,6 +5,12 @@
     state: directory
     mode: '0777'
 
+- name: Ensure upload directory exists
+  file:
+    path: /var/www/PurpleClouds/blog/public/assets/uploads
+    state: directory
+    mode: '0777'
+
 - name: Write docker-compose.yml
   template: src=docker-compose.yml dest=/var/www/PurpleClouds/blog/docker-compose.yml
 

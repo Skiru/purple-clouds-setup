@@ -1,6 +1,7 @@
 version: '3.8'
 services:
   blog_purple_clouds_php:
+    restart: always
     image: "${BLOG_PHP_IMAGE_BUILD_TAG}"
     volumes:
       - /var/www/PurpleClouds/blog/public/assets/uploads:/var/www/html/public/assets/uploads
@@ -11,6 +12,7 @@ services:
     networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
   blog_purple_clouds_nginx:
+    restart: always
     image: "bitnami/nginx:latest"
     ports:
       - "8001:8001"
@@ -22,6 +24,7 @@ services:
     networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
   blog_purple_clouds_mongo:
+    restart: always
     image: "mongo:latest"
     volumes:
       - ./docker/mongo:/data/db
@@ -31,6 +34,7 @@ services:
     networks: ["purple_clouds_network_external", "purple_clouds_network_internal"]
 
   blog_purple_clouds_assets:
+    restart: always
     image: "${BLOG_ASSETS_IMAGE_BUILD_TAG}"
     ports:
       - "8900:8900"
