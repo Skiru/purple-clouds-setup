@@ -11,17 +11,19 @@ Vagrant.configure("2") do |config|
     vb.name = "purpleclouds"
     vb.memory = 8096
     vb.cpus = 2
-    end
+    end 
 
     # added dynamic swap file management to prevent "Free Swap Space: 0 B" warning in Jenkins
     config.vm.provision :shell, inline: 'apt-get install swapspace -y'
     config.vm.provision "shell", path: "./ansible/ansible.sh"
 
-     # Use vagrant-bindfs to re-mount folder
-     config.bindfs.bind_folder "/home/mkoziol/Work/purple-clouds-setup", "/vagrant"
+    # Use vagrant-bindfs to re-mount folder
+    #config.bindfs.bind_folder "/home/mkoziol/Work/purple-clouds-setup", "/vagrant"
 
     # Linux
-    # config.vm.synced_folder ".", "/vagrant", create: true, type: :nfs, :mount_options => ['nolock,vers=3,tcp,noatime,clientaddr=192.168.33.10']
+    config.vm.synced_folder ".", "/vagrant",
+    type: "nfs",
+    nfs_version: 4
 
     # Mac
     #config.vm.synced_folder ".", "/vagrant",
