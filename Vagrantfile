@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
     # Linux
     config.vm.synced_folder ".", "/vagrant",
     type: "nfs",
-    nfs_version: 4
+    nfs_version: 3
 
     # Mac
     #config.vm.synced_folder ".", "/vagrant",

@@ -11,11 +11,17 @@
 - name: Copy nginx docker-compose template file
   template: src=docker-compose.yml dest=/var/www/PurpleClouds/nginx/docker-compose.yml
 
-- name: Copy SSL CRT file
+- name: Copy SSL CRT file for purplecloud
   template: src=purplecloud.pl/server.crt dest=/var/www/PurpleClouds/nginx/server.crt
 
-- name: Copy SSL KEY file
+- name: Copy SSL KEY file for purplecloud
   template: src=purplecloud.pl/server.key dest=/var/www/PurpleClouds/nginx/server.key
+
+- name: Copy SSL CRT file for purpleclouds
+  template: src=purpleclouds.pl/server_plural.crt dest=/var/www/PurpleClouds/nginx/server_plural.crt
+
+- name: Copy SSL KEY file for purpleclouds
+  template: src=purpleclouds.pl/server_plural.key dest=/var/www/PurpleClouds/nginx/server_plural.key
 
 - name: Copy nginx Dockerfile template file
   template: src=Dockerfile dest=/var/www/PurpleClouds/nginx/Dockerfile
