@@ -8,14 +8,13 @@ blog_nginx_docker: "blog_purple_clouds_nginx"
 blog_php_docker: "blog_purple_clouds_php"
 blog_assets: "blog_purple_clouds_assets"
 
-ecorp_nginx_docker: "ecorp_purple_clouds_nginx"
-ecorp_php_docker: "ecorp_purple_clouds_php"
-ecorp_postgres_docker: "ecorp_purple_clouds_postgres"
-ecorp_assets: "ecorp_purple_clouds_assets"
+ecorp_nginx_docker: "nginx"
+ecorp_php_docker: "php"
+ecorp_postgres_docker: "postgres"
+ecorp_assets: "assets"
 
 task_manager_nginx_docker: "task-manager_task_manager_purple_clouds_nginx_1"
 task_manager_php_docker: "task-manager_task_manager_purple_clouds_php_1"
-
 
 wedding_nginx_docker: "wedding_purple_clouds_nginx"
 wedding_php_docker: "wedding_purple_clouds_php"
