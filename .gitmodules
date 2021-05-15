@@ -1,6 +1,6 @@
 [submodule "PurpleClouds/ecorp"]
 	path = PurpleClouds/ecorp
-	url = git@github.com:Skiru/ecorp.git
+	url = https://github.com/Skiru/ecorp.git
 [submodule "PurpleClouds/blog"]
 	path = PurpleClouds/blog
 	url = git@github.com:Skiru/blog.git
@@ -11,8 +11,8 @@
 	path = PurpleClouds/wedding
 	url = git@github.com:Skiru/wedding.git
 [submodule "PurpleClouds/idp"]
-    path = PurpleClouds/idp
-    url = git@github.com:Skiru/idp.git
+	path = PurpleClouds/idp
+	url = git@github.com:Skiru/idp.git
 [submodule "PurpleClouds/purpleclouds-image"]
-    path = PurpleClouds/purpleclouds-image
-    url = git@github.com:Skiru/purpleclouds-image.git
+	path = PurpleClouds/purpleclouds-image
+	url = git@github.com:Skiru/purpleclouds-image.git
