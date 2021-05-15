@@ -10,3 +10,9 @@
 [submodule "PurpleClouds/wedding"]
 	path = PurpleClouds/wedding
 	url = git@github.com:Skiru/wedding.git
+[submodule "PurpleClouds/idp"]
+    path = PurpleClouds/idp
+    url = git@github.com:Skiru/idp.git
+[submodule "PurpleClouds/purpleclouds-image"]
+    path = PurpleClouds/purpleclouds-image
+    url = git@github.com:Skiru/purpleclouds-image.git
