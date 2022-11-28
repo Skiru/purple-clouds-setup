@@ -8,7 +8,7 @@
     name: aptitude
     state: latest
 
-- name: Update APT Reporistory
+- name: Update APT Repository
   apt:
     state: latest
     update_cache: yes

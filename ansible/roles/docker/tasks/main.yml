@@ -1,46 +1,42 @@
 ---
-- name: Add Docker Group
-  group: name=docker state=present
-
-- name: Ensure docker users are added to the docker group.
-  user:
-    name: vagrant
-    groups: docker
-    append: true
-
-- name: Install Docker's dependencies
+- name: Install required system packages
   apt:
-    name: "{{ docker__package_dependencies + docker__pip_dependencies }}"
+    pkg:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - python3-setuptools
+    state: latest
+    update_cache: true
 
-- name: Add Docker's public GPG key to the APT keyring
+- name: Add Docker GPG apt Key
   apt_key:
-    id: "{{ docker__apt_key_id }}"
-    url: "{{ docker__apt_key_url }}"
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
 
 - name: Configure Docker's upstream APT repository
   apt_repository:
-    repo: "{{ docker__apt_repository }}"
+    repo: deb [arch=amd64] https://download.docker.com/linux/ubuntu {{ansible_distribution_release}} stable
     update_cache: true
 
-- name: Install Docker
+- name: Update apt and install docker-ce
   apt:
-    name: "docker-{{ docker__edition }}"
-    state: "{{docker__state}}"
+    name: docker-ce
+    state: present
+    update_cache: true
 
 - name: Install pip3
   apt:
     name: python3-pip
+
+- name: Install Docker Module for Python
+  command: pip3 install docker
 
 - name: Install pip3 docker-compose
   command: pip3 install docker-compose
 
 - name: Install Virtualenv
   command: pip3 install virtualenv
-
-- name: Create a network
-  docker_network:
-    name: "{{ purple_clouds_docker_network_external }}"
-
-- name: Create an internal network
-  docker_network:
-    name: "{{ purple_clouds_docker_network_internal }}"

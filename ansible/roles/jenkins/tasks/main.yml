@@ -11,21 +11,21 @@
     state: directory
     owner: 1000
     group: 1000
-    path: /vagrant/jenkins
+    path: /home/jenkins
 
 - name: Copy Dockerfile with owner and permissions
   copy:
     src: ../../../../jenkins/Dockerfile
-    dest: /vagrant/jenkins/Dockerfile
+    dest: /home/jenkins/Dockerfile
     mode: 0755
 
 - name: Copy docker-compose with owner and permissions
   copy:
     src: ../../../../jenkins/docker-compose.yml
-    dest: /vagrant/jenkins/docker-compose.yml
+    dest: /home/jenkins/docker-compose.yml
     mode: 0755
 
 - name: Build jenkins docker image
   command: docker-compose up -d
   args:
-    chdir: /vagrant/jenkins
+    chdir: /home/jenkins

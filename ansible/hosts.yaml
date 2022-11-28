@@ -1,0 +1,6 @@
+all:
+    hosts:
+        prod:
+            ansible_host: srv12.mikr.us
+            ansible_user: root
+            ansible_port: 10330
