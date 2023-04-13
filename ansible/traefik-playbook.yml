@@ -2,4 +2,4 @@
 - hosts: prod, vb
   become: true
   roles:
-    - jenkins
+    - traefik

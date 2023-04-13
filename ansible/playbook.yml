@@ -1,9 +1,10 @@
 ---
-- hosts: prod
+- hosts: prod, vb
   become: true
   roles:
     - common
     - docker
+- import_playbook: traefik-playbook.yml
 - import_playbook: jenkins-playbook.yml
 # - import_playbook: ecorp-playbook.yml
 # - import_playbook: blog-playbook.yml

@@ -4,3 +4,6 @@ all:
             ansible_host: srv12.mikr.us
             ansible_user: root
             ansible_port: 10330
+        vb:
+            ansible_host: localhost
+            ansible_connection: local

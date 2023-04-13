@@ -9,7 +9,7 @@ services:
         - 8081:8081
         - 50000:50000
     volumes:
-      - /data/jenkins:/var/jenkins_home
+      - /var/www/jenkins:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - "traefik.http.routers.jenkins.rule=Host(`${jenkins_url:-jenkins.mateuszkoziol.local}`)"

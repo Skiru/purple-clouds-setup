@@ -40,3 +40,7 @@
 
 - name: Install Virtualenv
   command: pip3 install virtualenv
+
+- name: Create a network
+  community.docker.docker_network:
+    name: mkoziol

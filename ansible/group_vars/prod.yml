@@ -23,3 +23,5 @@ task_manager_php_docker: "task-manager_task_manager_purple_clouds_php_1"
 wedding_nginx_docker: "wedding_purple_clouds_nginx"
 wedding_php_docker: "wedding_purple_clouds_php"
 wedding_assets: "wedding_purple_clouds_assets"
+
+jenkins_url: "jenkins.mateuszkoziol.pl"

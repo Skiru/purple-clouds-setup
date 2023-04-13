@@ -1,1 +1,14 @@
 ---
+- name: Create traefik directory
+  file:
+    path: /var/www/traefik
+    state: directory
+    mode: '0777'
+
+- name: Write docker-compose.yml
+  template: src=docker-compose.yaml dest=/var/www/traefik/docker-compose.yaml
+
+- name: Build traefik
+  command: docker-compose up -d
+  args:
+    chdir: /var/www/traefik
